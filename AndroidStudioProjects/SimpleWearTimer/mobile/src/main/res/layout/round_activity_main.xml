@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -22,8 +21,7 @@
         android:id="@+id/tutorial"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#303F9F"
-        android:visibility="visible">
+        android:background="#303F9F">
 
         <TextView
             android:id="@+id/welcome"
@@ -106,19 +104,3 @@
     </ScrollView>
 
 </RelativeLayout>
-
-<!--<android.support.wearable.view.WatchViewStub
-
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/watch_view_stub"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-app:rectLayout="@layout/rect_activity_main"
-app:roundLayout="@layout/round_activity_main"
-tools:context="com.example.rafi.watchtimerv2.MainActivity"
-tools:deviceIds="wear">
-</android.support.wearable.view.WatchViewStub>-->
-
-
