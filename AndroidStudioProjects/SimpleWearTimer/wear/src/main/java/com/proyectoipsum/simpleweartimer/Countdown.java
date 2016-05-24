@@ -1,6 +1,7 @@
 package com.proyectoipsum.simpleweartimer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
 import android.widget.TextView;
@@ -42,6 +43,10 @@ public class Countdown implements Timer {
 
                 Vibrator v = (Vibrator) mainActivity.getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(300);
+
+                Intent intent = new Intent(mainActivity, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                mainActivity.startActivity(intent);
             }
         };
     }
