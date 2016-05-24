@@ -168,9 +168,6 @@ public class MainActivity extends Activity {
     public void onDestroy(){
 
         super.onDestroy();
-        if (wakeLock.isHeld()){
-            wakeLock.release();
-        }
         saveData();
         ArrayList<TimerView> runningTimers=timersAreRunning();
         if(runningTimers!=null){

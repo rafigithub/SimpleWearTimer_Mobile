@@ -11,8 +11,8 @@
     <string name="prueba">Prueba</string>
     <string name="test">Test</string>
     <string name="tutorial">Simple Wear Timer</string>
-    <string name="leftSwipe">Deslizar a la\n Izquierda para\n agregar Timer</string>
-    <string name="rightSwipe">Deslizar a la\n Derecha para Salir</string>
+    <string name="leftSwipe">Deslizar a la Izquierda para\n agregar Timer</string>
+    <string name="rightSwipe">Deslizar a la Derecha para Salir</string>
 </resources>
 
     <!--
