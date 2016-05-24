@@ -10,6 +10,7 @@ import android.os.PowerManager;
 import android.support.wearable.activity.WearableActivity;
 import android.support.wearable.view.WatchViewStub;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends WearableActivity{
 
-    //private View rootView;
+    private ViewGroup rootView;
     private PowerManager.WakeLock wakeLock;
     private ArrayList<TimerView> timers = new ArrayList<>();
 
@@ -34,17 +35,6 @@ public class MainActivity extends WearableActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
-        stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener(){
-
-            @Override
-            public void onLayoutInflated(WatchViewStub stub){
-
-                rootView = stub.findViewById(R.id.main);
-            }
-        });
-        if(rootView!=null)
-            setContentView(rootView);*/
         setAmbientEnabled();
 
         RelativeLayout tutorial = (RelativeLayout) findViewById(R.id.tutorial);
@@ -146,6 +136,10 @@ public class MainActivity extends WearableActivity{
         main.setBackgroundColor(Color.BLACK);
         RelativeLayout tutorial = (RelativeLayout)findViewById(R.id.tutorial);
         tutorial.setBackgroundColor(Color.BLACK);
+        if(findViewById(R.id.box)!=null){
+            View box = findViewById(R.id.box);
+            box.setBackgroundColor(Color.BLACK);
+        }
         if(timers.size()!=0){
 
             for(TimerView timerView: timers){
@@ -176,7 +170,10 @@ public class MainActivity extends WearableActivity{
         main.setBackgroundColor(Color.parseColor("#303F9F"));
         RelativeLayout tutorial = (RelativeLayout)findViewById(R.id.tutorial);
         tutorial.setBackgroundColor(Color.parseColor("#303F9F"));
-
+        if(findViewById(R.id.box)!=null){
+            View box = findViewById(R.id.box);
+            box.setBackgroundColor(Color.parseColor("#303F9F"));
+        }
         if(timers.size()!=0){
 
             for(TimerView timerView: timers){
