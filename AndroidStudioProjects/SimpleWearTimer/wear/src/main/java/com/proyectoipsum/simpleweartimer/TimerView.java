@@ -54,7 +54,12 @@ public class TimerView extends LinearLayout{
 
             @Override
             public void onSwipeLeft() {
-                mainActivity.setTimerFragment();
+                mainActivity.setTimerFragmentCountdown();
+            }
+
+            @Override
+            public void onSwipeUp() {
+                mainActivity.setTimerFragmentStopwatch();
             }
 
             @Override
@@ -72,14 +77,14 @@ public class TimerView extends LinearLayout{
 
                         timer.setUpTimer(timeText);
                         timer.startTimer();
-                        play.setImageResource(R.drawable.ic_pause_white_48dp);
+                        play.setImageResource(R.drawable.ic_pause_white_48dp_small);
                         play.setTag("pause");
                     }
 
                     else if(play.getTag().equals("pause")){
 
                         timer.cancelTimer();
-                        play.setImageResource(R.drawable.ic_play_arrow_white_48dp);
+                        play.setImageResource(R.drawable.ic_play_arrow_white_48dp_small);
                         play.setTag("play");
                     }
                 }
@@ -90,7 +95,12 @@ public class TimerView extends LinearLayout{
 
             @Override
             public void onSwipeLeft() {
-                mainActivity.setTimerFragment();
+                mainActivity.setTimerFragmentCountdown();
+            }
+
+            @Override
+            public void onSwipeUp() {
+                mainActivity.setTimerFragmentStopwatch();
             }
 
             @Override
@@ -110,7 +120,12 @@ public class TimerView extends LinearLayout{
 
             @Override
             public void onSwipeLeft() {
-                mainActivity.setTimerFragment();
+                mainActivity.setTimerFragmentCountdown();
+            }
+
+            @Override
+            public void onSwipeUp() {
+                mainActivity.setTimerFragmentStopwatch();
             }
 
             @Override
@@ -142,8 +157,14 @@ public class TimerView extends LinearLayout{
             @Override
             public void onSwipeLeft(){
 
-                mainActivity.setTimerFragment();
+                mainActivity.setTimerFragmentCountdown();
             }
+
+            @Override
+            public void onSwipeUp() {
+                mainActivity.setTimerFragmentStopwatch();
+            }
+
             @Override
             public void onSwipeRight(){
 
@@ -160,7 +181,7 @@ public class TimerView extends LinearLayout{
     public void resetTimerView() {
 
         timeText.setText(timer.getStartingTime());
-        playButton.setImageResource(R.drawable.ic_play_arrow_white_48dp);
+        playButton.setImageResource(R.drawable.ic_play_arrow_white_48dp_small);
         playButton.setTag("play");
     }
 

@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
+<android.support.wearable.view.BoxInsetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/box"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#303F9F"
+    android:padding="25dp">
+
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -9,19 +19,14 @@
         android:layout_height="match_parent"
         android:background="#303F9F">
 
-        <TextClock
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textClock"
-            android:layout_centerHorizontal="true" />
-
-        <RelativeLayout
+        <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             tools:context="com.example.rafi.watchtimerv2.MainActivity"
             android:id="@+id/tutorial"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:background="#303F9F"
             android:visibility="visible">
 
@@ -30,14 +35,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tutorial"
-                android:textSize="15sp"
+                android:textSize="12sp"
                 android:textAlignment="center"
                 android:fontFamily="serif"
+                android:layout_weight=".15"
                 android:textColor="#FFFFFF"
-                android:layout_alignParentTop="true"
-                android:layout_marginBottom="10dp"/>
+                android:gravity="center_vertical" />
 
-            <LinearLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/leftSwipeSm"
+                android:textAlignment="center"
+                android:id="@+id/textSwipeLeft"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"
+                android:layout_weight=".45"
+                android:gravity="center_vertical" />
+
+            <!--<LinearLayout
                 android:id="@+id/containerSwipeLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,49 +62,41 @@
                 android:layout_centerVertical="true"
                 android:layout_centerInParent="true">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/leftSwipe"
-                    android:textAlignment="center"
-                    android:id="@+id/textSwipeLeft"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/white"/>
 
-                <ImageView
+
+                &lt;!&ndash;<ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/swipeLeft"
-                    android:src="@drawable/ic_swipe_left_48dp"/>
-            </LinearLayout>
+                    android:src="@drawable/ic_swipe_left_48dp"/>&ndash;&gt;
+            </LinearLayout>-->
 
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:id="@+id/containerSwiperRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_centerVertical="false"
-                android:layout_centerInParent="true"
-                android:layout_below="@+id/containerSwipeLeft">
+                android:orientation="horizontal">
 
-                <ImageView
+                &lt;!&ndash;<ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/swipeRight"
-                    android:src="@drawable/ic_trending_flat_white_48dp"/>
+                    android:src="@drawable/ic_trending_flat_white_48dp"/>&ndash;&gt;
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/rightSwipe"
-                    android:textAlignment="center"
-                    android:gravity="center_vertical"
-                    android:id="@+id/textSwipeRight"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/white"/>
-            </LinearLayout>
-        </RelativeLayout>
+            </LinearLayout>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rightSwipeSm"
+                android:textAlignment="center"
+                android:id="@+id/textSwipeRight"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"
+                android:layout_weight=".45"
+                android:gravity="center_vertical" />
+        </LinearLayout>
 
         <ScrollView
             android:id="@+id/mainscroll"
@@ -106,6 +114,8 @@
         </ScrollView>
 
     </RelativeLayout>
+
+</android.support.wearable.view.BoxInsetLayout>
 
 
 <!--<android.support.wearable.view.WatchViewStub

@@ -13,6 +13,8 @@
     <string name="tutorial">Simple Wear Timer</string>
     <string name="leftSwipe">Swipe to the \n Left to \n add Timer</string>
     <string name="rightSwipe">Swipe to the\n Right to Exit</string>
+    <string name="leftSwipeSm">Swipe to the Left to add Timer</string>
+    <string name="rightSwipeSm">Swipe to the Right to Exit</string>
 </resources>
 
     <!--

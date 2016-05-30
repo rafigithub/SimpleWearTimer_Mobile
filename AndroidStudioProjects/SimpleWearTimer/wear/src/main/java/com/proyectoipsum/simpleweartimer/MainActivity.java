@@ -8,14 +8,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.support.wearable.activity.WearableActivity;
-import android.support.wearable.view.WatchViewStub;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -37,7 +35,7 @@ public class MainActivity extends WearableActivity{
 
         setAmbientEnabled();
 
-        RelativeLayout tutorial = (RelativeLayout) findViewById(R.id.tutorial);
+        ViewGroup tutorial = (ViewGroup) findViewById(R.id.tutorial);
         setCreateTimerListener(tutorial);
         /*tutorial.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this, tutorial){
 
@@ -120,6 +118,11 @@ public class MainActivity extends WearableActivity{
                 finish();
             }
         });*/
+
+        /*if (findViewById(R.id.box) != null){
+            View insetBox = findViewById(R.id.box);
+            setCreateTimerListener(insetBox);
+        }*/
     }
 
     @Override
@@ -190,11 +193,20 @@ public class MainActivity extends WearableActivity{
         }
     }
 
-    public void setTimerFragment(){
+    public void setTimerFragmentCountdown(){
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        SetTimer fragment = new SetTimer();
+        SetTimerCountdown fragment = new SetTimerCountdown();
+        fragmentTransaction.add(R.id.main, fragment);
+        fragmentTransaction.commit();
+    }
+
+    public void setTimerFragmentStopwatch(){
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        SetTimerStopwatch fragment = new SetTimerStopwatch();
         fragmentTransaction.add(R.id.main, fragment);
         fragmentTransaction.commit();
     }
@@ -270,7 +282,13 @@ public class MainActivity extends WearableActivity{
             @Override
             public void onSwipeLeft(){
 
-                setTimerFragment();
+                setTimerFragmentCountdown();
+            }
+
+            @Override
+            public void onSwipeUp(){
+
+                setTimerFragmentStopwatch();
             }
 
             @Override
