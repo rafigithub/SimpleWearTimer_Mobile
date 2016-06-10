@@ -42,7 +42,7 @@
             android:id="@+id/resetButton"
             android:tag="reset"/>
 
-        <TextView
+        <Chronometer
             android:id="@+id/numberView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

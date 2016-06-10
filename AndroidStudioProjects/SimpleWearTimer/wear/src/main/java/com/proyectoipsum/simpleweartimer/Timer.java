@@ -10,9 +10,13 @@ public interface Timer {
 
     void setUpTimer(TextView timerDisplay);
 
-    void startTimer();
+    void playTimer();
 
-    void cancelTimer();
+    void pauseTimer();
+
+    void resetTimer();
+
+    void eraseTimer();
 
     String getStartingTime();
 }

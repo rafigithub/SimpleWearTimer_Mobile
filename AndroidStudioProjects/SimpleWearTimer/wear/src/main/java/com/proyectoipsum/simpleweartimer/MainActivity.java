@@ -67,12 +67,40 @@ public class MainActivity extends WearableActivity{
 
             if(timeWhenLeaving!=null && timeWhenLeaving.size()>0){
 
-                for(String times:timeWhenLeaving){
+                for(int i=0; i<timeWhenLeaving.size(); i++) {
 
-                    Timer timer = new Countdown(this, times);
-                    TimerView timerView = new TimerView(this, timer, (LinearLayout)findViewById(R.id.contenedor));
-                    timers.add(timerView);
+                    if (timeWhenLeaving.get(i).equals("orange")){
+
+                        Timer timer = new StopWatch(this);
+                        TimerView timerView = new TimerViewOrange(this, timer, (LinearLayout)findViewById(R.id.contenedor));
+                        timers.add(timerView);
+                    }
+                    else if (timeWhenLeaving.get(i).equals("blue")){
+
+                        Timer timer = new Countdown(this, timeWhenLeaving.get(i-1));
+                        TimerView timerView = new TimerViewBlue(this, timer, (LinearLayout)findViewById(R.id.contenedor));
+                        timers.add(timerView);
+                    }
                 }
+
+
+
+
+                /*for(String times:timeWhenLeaving){
+
+                    if (times.equals("00:00")){
+
+                        Timer timer = new StopWatch(this);
+                        TimerView timerView = new TimerView(this, timer, (LinearLayout)findViewById(R.id.contenedor));
+                        timers.add(timerView);
+                    }
+                    else{
+
+                        Timer timer = new Countdown(this, times);
+                        TimerView timerView = new TimerView(this, timer, (LinearLayout)findViewById(R.id.contenedor));
+                        timers.add(timerView);
+                    }
+                }*/
             }
             /*else{
 
@@ -184,7 +212,10 @@ public class MainActivity extends WearableActivity{
                 LinearLayout border = (LinearLayout) container.findViewById(R.id.hijo);
                 border.setBackgroundColor(Color.BLACK);
                 for (int i=0;i<border.getChildCount();i++){
-                    border.getChildAt(i).setBackgroundColor(Color.parseColor("#303F9F"));
+                    if(container.getTag().toString().equals("blue"))
+                        border.getChildAt(i).setBackgroundColor(Color.parseColor("#132584"));
+                    else if(container.getTag().toString().equals("orange"))
+                        border.getChildAt(i).setBackgroundColor(Color.parseColor("#C07705"));
                     if(border.getChildAt(i) instanceof TextView){
                         ((TextView) border.getChildAt(i)).getPaint().setAntiAlias(true);
                     }
@@ -193,20 +224,12 @@ public class MainActivity extends WearableActivity{
         }
     }
 
-    public void setTimerFragmentCountdown(){
+    public void setTimerFragment(){
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        SetTimerCountdown fragment = new SetTimerCountdown();
-        fragmentTransaction.add(R.id.main, fragment);
-        fragmentTransaction.commit();
-    }
-
-    public void setTimerFragmentStopwatch(){
-
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        SetTimerStopwatch fragment = new SetTimerStopwatch();
+        //SetTimerCountdown fragment = new SetTimerCountdown();
+        SetNewTimer fragment = new SetNewTimer();
         fragmentTransaction.add(R.id.main, fragment);
         fragmentTransaction.commit();
     }
@@ -269,6 +292,7 @@ public class MainActivity extends WearableActivity{
         for(TimerView timerView: timers){
 
             timeWhenLeaving.add(timerView.getStartingTime());
+            timeWhenLeaving.add(timerView.getTimerContainer().getTag().toString());
         }
         String json = gson.toJson(timeWhenLeaving, type);
         editor.putString("times", json);
@@ -282,13 +306,7 @@ public class MainActivity extends WearableActivity{
             @Override
             public void onSwipeLeft(){
 
-                setTimerFragmentCountdown();
-            }
-
-            @Override
-            public void onSwipeUp(){
-
-                setTimerFragmentStopwatch();
+                setTimerFragment();
             }
 
             @Override

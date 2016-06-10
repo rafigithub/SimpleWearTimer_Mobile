@@ -1,11 +1,10 @@
 package com.proyectoipsum.simpleweartimer;
 
 import android.content.Context;
+import android.os.SystemClock;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimerTask;
 
 /**
  * Created by Rafi on 29/05/2016.
@@ -14,69 +13,62 @@ public class StopWatch implements Timer {
 
     private long startingTimeMillis;
     private MainActivity mainActivity;
-    private TimerTask timerTask;
-    private java.util.Timer stopWatchTimer;
-    private String startingTime;
+    private Chronometer chronometer;
+    private long lastPause=-1;
+    private String startingTime="00:00";
 
     public StopWatch (final Context context){
 
         this.mainActivity = (MainActivity) context;
+        startingTimeMillis = System.currentTimeMillis();
     }
-
-    public StopWatch(final Context context, String startingTime){
-
-        this.mainActivity = (MainActivity) context;
-        this.startingTimeMillis = System.currentTimeMillis() + MilliConversions.stringToMilli(startingTime);
-        this.startingTime  = startingTime;
-    }
-
-
-
 
     public void setUpTimer(final TextView timerDisplay){
 
-        stopWatchTimer = new java.util.Timer();
-        timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                mainActivity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        timerDisplay.setText(stopWatch());
-                    }
-                });
-            }
-        };
-        //stopWatchTimer.scheduleAtFixedRate(timerTask, 0, 999);
+        chronometer = (Chronometer) timerDisplay;
+        //chronometer.setFormat("MM:SS");
     }
 
-    public void startTimer(){
+    public void playTimer(){
 
-        stopWatchTimer.scheduleAtFixedRate(timerTask, 0, 999);
+        if (lastPause==-1){
+
+            chronometer.setBase(SystemClock.elapsedRealtime());
+        }
+        else{
+            chronometer.setBase(chronometer.getBase() + SystemClock.elapsedRealtime() - lastPause);
+        }
+        chronometer.start();
 
     }
 
-    public void cancelTimer(){
+    public void pauseTimer(){
 
-        if (stopWatchTimer!= null){
+        chronometer.stop();
+        lastPause = SystemClock.elapsedRealtime();
+    }
 
-            timerTask.cancel();
-            stopWatchTimer.cancel();
-            stopWatchTimer.purge();
+    public void resetTimer(){
+
+        if (chronometer!=null){
+
+            chronometer.stop();
+            lastPause = -1;
         }
     }
 
+    public void eraseTimer(){
+
+        if (chronometer!=null){
+
+            chronometer.stop();
+            chronometer = null;
+        }
+
+    }
+
     public String getStartingTime(){
+
         return startingTime;
     }
-
-    public String stopWatch(){
-
-        long nowTime = System.currentTimeMillis() + MilliConversions.stringToMilli(startingTime);
-        long elapsed = nowTime - startingTimeMillis;
-        Date date = new Date(elapsed);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss");
-        return simpleDateFormat.format(date);
-    }
-
 }

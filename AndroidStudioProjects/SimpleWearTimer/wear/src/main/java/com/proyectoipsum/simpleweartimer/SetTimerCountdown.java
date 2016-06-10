@@ -151,7 +151,7 @@ public class SetTimerCountdown extends DialogFragment {
                 setMessage(String.format("%02d:%02d",getMinutePicker(),getSecondPicker()));
                 LinearLayout parent = (LinearLayout) mainActivity.findViewById(R.id.contenedor);
                 Timer timer = new Countdown(mainActivity, message);
-                TimerView timerView = new TimerView(mainActivity, timer, parent);
+                TimerView timerView = new TimerViewBlue(mainActivity, timer, parent);
                 mainActivity.getTimerArray().add(timerView);
                 if(mainActivity.getTimerArray().size()==1){
                     mainActivity.findViewById(R.id.tutorial).setVisibility(View.GONE);

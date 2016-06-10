@@ -13,6 +13,7 @@ public class Countdown implements Timer {
 
     private MainActivity mainActivity;
     private CountDownTimer testTimer;
+    private long millisTillFinish = -1;
     private String startingTime;
 
 
@@ -20,7 +21,6 @@ public class Countdown implements Timer {
 
         mainActivity = (MainActivity) context;
         this.startingTime = startingTime;
-        //setTimerView(timerView);
 
     }
 
@@ -29,11 +29,52 @@ public class Countdown implements Timer {
 
         final String timeString = timerDisplay.getText().toString();
         long millisRemaining = MilliConversions.stringToMilli(timeString);
+        createCountdownTimer(millisRemaining, 400, timerDisplay);
 
-        testTimer  = new CountDownTimer(millisRemaining, 400) {
+    }
+
+    public void playTimer(){
+
+        testTimer.start();
+    }
+
+    public void resetTimer(){
+
+        if(testTimer!=null){
+
+            testTimer.cancel();
+        }
+    }
+
+    public void pauseTimer(){
+
+        if(testTimer!=null){
+
+            testTimer.cancel();
+        }
+    }
+
+    public void eraseTimer(){
+
+        if(testTimer!=null){
+
+            testTimer.cancel();
+        }
+    }
+
+    public String getStartingTime(){
+
+        return startingTime;
+    }
+
+
+    private void createCountdownTimer(long time, long tick, final TextView timerDisplay){
+
+        testTimer  = new CountDownTimer(time, tick) {
             @Override
             public void onTick(long millisUntilFinished) {
 
+                millisTillFinish = millisUntilFinished;
                 String timeRemaining = MilliConversions.milliToString(millisUntilFinished);
                 timerDisplay.setText(timeRemaining);
             }
@@ -49,23 +90,5 @@ public class Countdown implements Timer {
                 mainActivity.startActivity(intent);
             }
         };
-    }
-
-    public void startTimer(){
-
-        testTimer.start();
-    }
-
-    public void cancelTimer(){
-
-        if(testTimer!=null){
-
-            testTimer.cancel();
-        }
-    }
-
-    public String getStartingTime(){
-
-        return startingTime;
     }
 }
