@@ -84,6 +84,7 @@ public class Countdown implements Timer {
 
                 Vibrator v = (Vibrator) mainActivity.getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(300);
+                timerDisplay.setText("00:00");
 
                 Intent intent = new Intent(mainActivity, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_SINGLE_TOP);

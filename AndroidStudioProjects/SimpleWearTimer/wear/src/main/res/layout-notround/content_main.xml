@@ -2,40 +2,76 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/dialogpadre"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#303F9F"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/dialogpadre">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:orientation="horizontal"
         android:layout_weight="0.2"
-        android:text="@string/numberPicker"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textColor="@color/white"/>
+        android:id="@+id/npTutContainer">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/up_down_swipe"
+            android:layout_weight="0.25"
+            android:id="@+id/npTutImg1"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35"
+            android:text="@string/numberPicker1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:id="@+id/npTutText1"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_trending_flat_white_48dp"
+            android:layout_weight="0.25"
+            android:id="@+id/npTutImg2"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35"
+            android:text="@string/numberPicker2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:id="@+id/npTutText2"/>
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
         android:layout_weight="0.8"
-        android:gravity="center">
+        android:gravity="center"
+        android:id="@+id/npContainer">
 
         <NumberPicker
-            android:id="@+id/minute_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:solidColor="#303F9F">
+            android:solidColor="#303F9F"
+            android:id="@+id/minute_picker">
         </NumberPicker>
 
         <NumberPicker
-            android:id="@+id/second_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:solidColor="#303F9F">
+            android:solidColor="#303F9F"
+            android:id="@+id/second_picker">
         </NumberPicker>
 
     </LinearLayout>

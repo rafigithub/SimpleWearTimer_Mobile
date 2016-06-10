@@ -17,7 +17,8 @@
     <string name="rightSwipeSm">Swipe to the Right to Exit</string>
     <string name="newTimer">Add a new Timer</string>
     <string name="newStopwatch">Add a new Stopwatch</string>
-    <string name="numberPicker">Choose a time for the Timer</string>
+    <string name="numberPicker1">Choose Time</string>
+    <string name="numberPicker2">Create Timer</string>
 </resources>
 
     <!--

@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.wearable.view.BoxInsetLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/box"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:background="#303F9F"
-    android:padding="25dp">
 
         <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,7 +14,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textClock"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"/>
 
             <RelativeLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -32,6 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#303F9F"
+                android:paddingTop="25dp"
                 android:visibility="visible">
 
                 <TextView
@@ -85,7 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/swipeRight"
-                        android:src="@drawable/ic_trending_flat_white_48dp"/>
+                        android:src="@drawable/ic_swipe_right_48dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -103,20 +97,21 @@
                 android:id="@+id/mainscroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textClock">
+                android:layout_below="@+id/textClock"
+                android:layout_marginTop="15dp">
 
                 <LinearLayout
                     android:id="@+id/contenedor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingBottom="50dp">
                 </LinearLayout>
 
             </ScrollView>
 
         </RelativeLayout>
 
-</android.support.wearable.view.BoxInsetLayout>
 
 <!--<android.support.wearable.view.WatchViewStub
 
@@ -131,3 +126,13 @@ app:roundLayout="@layout/round_activity_main"
 tools:context="com.proyectoipsum.simpleweartimer.MainActivity"
 tools:deviceIds="wear">
 </android.support.wearable.view.WatchViewStub>-->
+
+<!--<android.support.wearable.view.BoxInsetLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_height="match_parent"
+android:layout_width="match_parent"
+android:background="#303F9F"
+android:padding="25dp"
+android:id="@+id/box">
+</android.support.wearable.view.BoxInsetLayout>-->
