@@ -167,10 +167,10 @@ public class MainActivity extends WearableActivity{
         main.setBackgroundColor(Color.BLACK);
         RelativeLayout tutorial = (RelativeLayout)findViewById(R.id.tutorial);
         tutorial.setBackgroundColor(Color.BLACK);
-        if(findViewById(R.id.box)!=null){
+        /*if(findViewById(R.id.box)!=null){
             View box = findViewById(R.id.box);
             box.setBackgroundColor(Color.BLACK);
-        }
+        }*/
         if(timers.size()!=0){
 
             for(TimerView timerView: timers){
@@ -201,10 +201,10 @@ public class MainActivity extends WearableActivity{
         main.setBackgroundColor(Color.parseColor("#303F9F"));
         RelativeLayout tutorial = (RelativeLayout)findViewById(R.id.tutorial);
         tutorial.setBackgroundColor(Color.parseColor("#303F9F"));
-        if(findViewById(R.id.box)!=null){
+        /*if(findViewById(R.id.box)!=null){
             View box = findViewById(R.id.box);
             box.setBackgroundColor(Color.parseColor("#303F9F"));
-        }
+        }*/
         if(timers.size()!=0){
 
             for(TimerView timerView: timers){

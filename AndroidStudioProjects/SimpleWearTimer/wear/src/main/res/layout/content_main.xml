@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.wearable.view.BoxInsetLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/box"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:background="#303F9F"
-    android:padding="25dp">
+
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,6 +15,9 @@
             android:layout_height="0dp"
             android:orientation="horizontal"
             android:layout_weight="0.2"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:id="@+id/npTutContainer">
 
             <ImageView
@@ -34,17 +30,18 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.35"
+                android:layout_weight="0.4"
                 android:text="@string/numberPicker1"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textColor="@color/white"
+                android:textSize="12sp"
                 android:id="@+id/npTutText1"/>
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_trending_flat_white_48dp"
+                android:src="@drawable/ic_swipe_left_48dp"
                 android:layout_weight="0.25"
                 android:id="@+id/npTutImg2"/>
 
@@ -56,6 +53,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textColor="@color/white"
+                android:textSize="11sp"
                 android:id="@+id/npTutText2"/>
 
 
@@ -86,5 +84,6 @@
         </LinearLayout>
 
     </LinearLayout>
-</android.support.wearable.view.BoxInsetLayout>
+
+
     <!--android:solidColor="#3F51B5"-->

@@ -46,7 +46,7 @@
             android:id="@+id/numberView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="23sp"
             android:text="@string/prueba"
             android:gravity="center"
             android:textColor="@android:color/white"

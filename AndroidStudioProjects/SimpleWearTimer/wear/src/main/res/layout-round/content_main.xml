@@ -41,7 +41,7 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_trending_flat_white_48dp"
+                android:src="@drawable/ic_swipe_left_48dp"
                 android:layout_weight="0.25"
                 android:id="@+id/npTutImg2"/>
 
