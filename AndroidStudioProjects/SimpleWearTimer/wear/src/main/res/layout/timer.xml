@@ -2,22 +2,22 @@
 
 <LinearLayout
     android:tag="nuevo"
-    android:id="@+id/padre"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:paddingTop="8dp"
-    android:paddingBottom="8dp">
+    android:paddingBottom="8dp"
+    android:id="@+id/padre">
 
     <LinearLayout
         android:tag="nuevo"
-        android:id="@+id/hijo"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:background="@android:color/black"
         android:paddingTop="2dp"
-        android:paddingBottom="2dp">
+        android:paddingBottom="2dp"
+        android:id="@+id/hijo">
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -27,8 +27,8 @@
             android:src="@drawable/ic_play_arrow_white_48dp_small"
             android:clickable="true"
             android:contentDescription="@null"
-            android:id="@+id/playButton"
-            android:tag="play">
+            android:tag="play"
+            android:id="@+id/playButton">
         </ImageButton>
 
         <ImageButton
@@ -39,11 +39,10 @@
             android:src="@android:drawable/ic_menu_revert"
             android:clickable="true"
             android:contentDescription="@null"
-            android:id="@+id/resetButton"
-            android:tag="reset"/>
+            android:tag="reset"
+            android:id="@+id/resetButton"/>
 
         <Chronometer
-            android:id="@+id/numberView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="23sp"
@@ -52,10 +51,10 @@
             android:textColor="@android:color/white"
             android:background="#3F51B5"
             android:layout_weight="2"
-            android:tag="numberView"/>
+            android:tag="numberView"
+            android:id="@+id/numberView"/>
 
         <ImageButton
-            android:id="@+id/eraseButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -63,7 +62,8 @@
             android:src="@android:drawable/ic_menu_delete"
             android:contentDescription="@null"
             android:clickable="true"
-            android:tag="erase"/>
+            android:tag="erase"
+            android:id="@+id/eraseButton"/>
 
     </LinearLayout>
 

@@ -4,29 +4,28 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         tools:context="com.proyectoipsum.simpleweartimer.MainActivity"
-        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#303F9F">
+        android:background="#303F9F"
+        android:id="@+id/main">
 
         <TextClock
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textClock"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textClock"/>
 
         <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             tools:context="com.example.rafi.watchtimerv2.MainActivity"
-            android:id="@+id/tutorial"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#303F9F"
-            android:visibility="visible">
+            android:visibility="visible"
+            android:id="@+id/tutorial">
 
             <TextView
-                android:id="@+id/welcome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tutorial"
@@ -35,48 +34,49 @@
                 android:fontFamily="serif"
                 android:textColor="#FFFFFF"
                 android:layout_alignParentTop="true"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:id="@+id/welcome"/>
 
             <LinearLayout
-                android:id="@+id/containerSwipeLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_below="@+id/welcome"
                 android:layout_centerVertical="true"
-                android:layout_centerInParent="true">
+                android:layout_centerInParent="true"
+                android:id="@+id/containerSwipeLeft">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="@string/leftSwipe"
                     android:textAlignment="center"
-                    android:id="@+id/textSwipeLeft"
                     android:textSize="18sp"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@android:color/white"
+                    android:id="@+id/textSwipeLeft"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:id="@+id/swipeLeft"
-                    android:src="@drawable/ic_swipe_left_48dp"/>
+                    android:src="@drawable/ic_swipe_left_48dp"
+                    android:id="@+id/swipeLeft"/>
             </LinearLayout>
 
 
             <LinearLayout
-                android:id="@+id/containerSwiperRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_centerVertical="false"
                 android:layout_centerInParent="true"
-                android:layout_below="@+id/containerSwipeLeft">
+                android:layout_below="@+id/containerSwipeLeft"
+                android:id="@+id/containerSwiperRight">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:id="@+id/swipeRight"
-                    android:src="@drawable/ic_trending_flat_white_48dp"/>
+                    android:src="@drawable/ic_trending_flat_white_48dp"
+                    android:id="@+id/swipeRight"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -84,23 +84,25 @@
                     android:text="@string/rightSwipe"
                     android:textAlignment="center"
                     android:gravity="center_vertical"
-                    android:id="@+id/textSwipeRight"
                     android:textSize="18sp"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@android:color/white"
+                    android:id="@+id/textSwipeRight"/>
+
             </LinearLayout>
+
         </RelativeLayout>
 
         <ScrollView
-            android:id="@+id/mainscroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textClock">
+            android:layout_below="@+id/textClock"
+            android:id="@+id/mainscroll">
 
             <LinearLayout
-                android:id="@+id/contenedor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:id="@+id/contenedor">
             </LinearLayout>
 
         </ScrollView>
