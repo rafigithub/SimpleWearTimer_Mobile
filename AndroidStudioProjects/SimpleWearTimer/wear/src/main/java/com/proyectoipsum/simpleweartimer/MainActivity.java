@@ -23,7 +23,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends WearableActivity{
 
-    private ViewGroup rootView;
     private PowerManager.WakeLock wakeLock;
     private ArrayList<TimerView> timers = new ArrayList<>();
 
@@ -37,20 +36,6 @@ public class MainActivity extends WearableActivity{
 
         ViewGroup tutorial = (ViewGroup) findViewById(R.id.tutorial);
         setCreateTimerListener(tutorial);
-        /*tutorial.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this, tutorial){
-
-            @Override
-            public void onSwipeLeft(){
-                Toast.makeText(getApplicationContext(),"tutorial advance",Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onSwipeRight(){
-                Toast.makeText(getApplicationContext(),"tutorial reverse",Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });*/
-
 
         PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "awake");
@@ -71,7 +56,7 @@ public class MainActivity extends WearableActivity{
 
                     if (timeWhenLeaving.get(i).equals("orange")){
 
-                        Timer timer = new StopWatch(this);
+                        Timer timer = new StopWatch();
                         TimerView timerView = new TimerViewOrange(this, timer, (LinearLayout)findViewById(R.id.contenedor));
                         timers.add(timerView);
                     }
@@ -83,29 +68,7 @@ public class MainActivity extends WearableActivity{
                     }
                 }
 
-
-
-
-                /*for(String times:timeWhenLeaving){
-
-                    if (times.equals("00:00")){
-
-                        Timer timer = new StopWatch(this);
-                        TimerView timerView = new TimerView(this, timer, (LinearLayout)findViewById(R.id.contenedor));
-                        timers.add(timerView);
-                    }
-                    else{
-
-                        Timer timer = new Countdown(this, times);
-                        TimerView timerView = new TimerView(this, timer, (LinearLayout)findViewById(R.id.contenedor));
-                        timers.add(timerView);
-                    }
-                }*/
             }
-            /*else{
-
-                Toast.makeText(this,"saved time array is empty",Toast.LENGTH_SHORT).show();
-            }*/
         }
 
         if(timers.size()>0){
@@ -115,42 +78,9 @@ public class MainActivity extends WearableActivity{
 
         View main = findViewById(R.id.main);
         setCreateTimerListener(main);
-        /*main.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
-
-            @Override
-            public void onSwipeLeft() {
-
-                setTimerFragment();
-            }
-
-            @Override
-            public void onSwipeRight() {
-
-                finish();
-            }
-        });*/
 
         View mainScroll = findViewById(R.id.mainscroll);
         setCreateTimerListener(mainScroll);
-        /*mainScroll.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
-
-            @Override
-            public void onSwipeLeft() {
-
-                setTimerFragment();
-            }
-
-            @Override
-            public void onSwipeRight() {
-
-                finish();
-            }
-        });*/
-
-        /*if (findViewById(R.id.box) != null){
-            View insetBox = findViewById(R.id.box);
-            setCreateTimerListener(insetBox);
-        }*/
     }
 
     @Override
@@ -167,10 +97,7 @@ public class MainActivity extends WearableActivity{
         main.setBackgroundColor(Color.BLACK);
         RelativeLayout tutorial = (RelativeLayout)findViewById(R.id.tutorial);
         tutorial.setBackgroundColor(Color.BLACK);
-        /*if(findViewById(R.id.box)!=null){
-            View box = findViewById(R.id.box);
-            box.setBackgroundColor(Color.BLACK);
-        }*/
+
         if(timers.size()!=0){
 
             for(TimerView timerView: timers){
@@ -201,10 +128,6 @@ public class MainActivity extends WearableActivity{
         main.setBackgroundColor(Color.parseColor("#303F9F"));
         RelativeLayout tutorial = (RelativeLayout)findViewById(R.id.tutorial);
         tutorial.setBackgroundColor(Color.parseColor("#303F9F"));
-        /*if(findViewById(R.id.box)!=null){
-            View box = findViewById(R.id.box);
-            box.setBackgroundColor(Color.parseColor("#303F9F"));
-        }*/
         if(timers.size()!=0){
 
             for(TimerView timerView: timers){
@@ -228,7 +151,6 @@ public class MainActivity extends WearableActivity{
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        //SetTimerCountdown fragment = new SetTimerCountdown();
         SetNewTimer fragment = new SetNewTimer();
         fragmentTransaction.add(R.id.main, fragment);
         fragmentTransaction.commit();
@@ -294,6 +216,7 @@ public class MainActivity extends WearableActivity{
             timeWhenLeaving.add(timerView.getStartingTime());
             timeWhenLeaving.add(timerView.getTimerContainer().getTag().toString());
         }
+
         String json = gson.toJson(timeWhenLeaving, type);
         editor.putString("times", json);
         editor.apply();

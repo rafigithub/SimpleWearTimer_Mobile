@@ -75,28 +75,6 @@ public class SetTimerCountdown extends DialogFragment {
         setCreateTimerListener(mMinutePicker);
         setCreateTimerListener(mSecondPicker);
 
-       /* mMinutePicker.setOnTouchListener(new OnSwipeTouchListener(getActivity().getApplicationContext()) {
-            @Override
-            public void onSwipeLeft() {
-                createTimer();
-                dismiss();
-            }
-            public void onSwipeRight() {
-                dismiss();
-            }
-        });
-
-        mSecondPicker.setOnTouchListener(new OnSwipeTouchListener(getActivity().getApplicationContext()) {
-            @Override
-            public void onSwipeLeft() {
-                createTimer();
-                dismiss();
-            }
-            public void onSwipeRight() {
-                dismiss();
-            }
-        });*/
-
     return vista;
     }
 

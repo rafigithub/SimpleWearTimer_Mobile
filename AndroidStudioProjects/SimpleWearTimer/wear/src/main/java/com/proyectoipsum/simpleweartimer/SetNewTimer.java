@@ -18,7 +18,7 @@ public class SetNewTimer extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //Inflate the dialog in front of the main activity
         View view = inflater.inflate(R.layout.set_new_timer,container, false);
-        //Set a listener and handler for right and left swipes.
+
         ViewGroup newStopwatch = (ViewGroup) view.findViewById(R.id.createStopwatch);
         setCreateStopwatchListener(newStopwatch);
         for(int i = 0; i<newStopwatch.getChildCount(); i++){
@@ -35,7 +35,6 @@ public class SetNewTimer extends DialogFragment {
 
         return view;
     }
-
 
     private void setCreateTimerListener(View view){
 
@@ -70,7 +69,7 @@ public class SetNewTimer extends DialogFragment {
 
                 MainActivity mainActivity = (MainActivity)getActivity();
                 LinearLayout parent = (LinearLayout) mainActivity.findViewById(R.id.contenedor);
-                Timer timer = new StopWatch(mainActivity);
+                Timer timer = new StopWatch();
                 TimerView timerView = new TimerViewOrange(mainActivity, timer, parent);
                 mainActivity.getTimerArray().add(timerView);
                 if(mainActivity.getTimerArray().size()==1){
@@ -87,7 +86,5 @@ public class SetNewTimer extends DialogFragment {
 
         });
     }
-
-
 
 }

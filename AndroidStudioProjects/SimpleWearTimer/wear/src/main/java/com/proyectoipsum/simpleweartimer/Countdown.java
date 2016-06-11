@@ -7,13 +7,13 @@ import android.os.Vibrator;
 import android.widget.TextView;
 
 /**
- * Created by Rafi on 26/04/2016.
+ * Created by Rafi S. on 26/04/2016.
  */
 public class Countdown implements Timer {
 
     private MainActivity mainActivity;
     private CountDownTimer testTimer;
-    private long millisTillFinish = -1;
+    //private long millisTillFinish = -1;
     private String startingTime;
 
 
@@ -67,14 +67,13 @@ public class Countdown implements Timer {
         return startingTime;
     }
 
-
     private void createCountdownTimer(long time, long tick, final TextView timerDisplay){
 
         testTimer  = new CountDownTimer(time, tick) {
             @Override
             public void onTick(long millisUntilFinished) {
 
-                millisTillFinish = millisUntilFinished;
+                //millisTillFinish = millisUntilFinished;
                 String timeRemaining = MilliConversions.milliToString(millisUntilFinished);
                 timerDisplay.setText(timeRemaining);
             }

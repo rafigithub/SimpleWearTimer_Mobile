@@ -1,6 +1,5 @@
 package com.proyectoipsum.simpleweartimer;
 
-import android.content.Context;
 import android.os.SystemClock;
 import android.widget.Chronometer;
 import android.widget.TextView;
@@ -11,22 +10,17 @@ import android.widget.TextView;
  */
 public class StopWatch implements Timer {
 
-    private long startingTimeMillis;
-    private MainActivity mainActivity;
     private Chronometer chronometer;
     private long lastPause=-1;
     private String startingTime="00:00";
 
-    public StopWatch (final Context context){
+    public StopWatch (){
 
-        this.mainActivity = (MainActivity) context;
-        startingTimeMillis = System.currentTimeMillis();
     }
 
     public void setUpTimer(final TextView timerDisplay){
 
         chronometer = (Chronometer) timerDisplay;
-        //chronometer.setFormat("MM:SS");
     }
 
     public void playTimer(){

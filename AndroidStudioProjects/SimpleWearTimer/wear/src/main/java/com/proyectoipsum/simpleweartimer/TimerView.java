@@ -67,8 +67,6 @@ public class TimerView extends LinearLayout{
 
                 ImageButton play = (ImageButton) v;
 
-                //if(!timeText.getText().toString().equals("00:00")){
-
                     if(play.getTag().equals("play")){
 
                         timer.setUpTimer(timeText);
@@ -84,7 +82,6 @@ public class TimerView extends LinearLayout{
                         play.setTag("play");
                     }
                 }
-            //}
         });
 
         resetButton.setOnTouchListener(new OnSwipeTouchListener(mainActivity, resetButton){
@@ -127,7 +124,6 @@ public class TimerView extends LinearLayout{
                 removeTimerView();
                 int posInArray = mainActivity.getTimerArray().indexOf(TimerView.this);
                 if(posInArray!=-1){
-                    //Toast.makeText(mainActivity, "element no"+ posInArray+".", Toast.LENGTH_SHORT).show();
                     mainActivity.getTimerArray().remove(posInArray);
                     if(mainActivity.getTimerArray().size()==0){
                         mainActivity.findViewById(R.id.tutorial).setVisibility(View.VISIBLE);
